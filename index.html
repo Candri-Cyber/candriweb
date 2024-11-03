@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share to Email</title>
+</head>
+<body>
+    <center>
+    <h2>Pilih Media Sosial</h2>
+    <button onclick="sendToEmail('Instagram')">Instagram</button>
+    <button onclick="sendToEmail('Facebook')">Facebook</button>
+    <button onclick="sendToEmail('Twitter')">Twitter</button>
+    <button onclick="sendToEmail('Gmail')">Gmail</button>
+</center>
+
+    <script>
+        function sendToEmail(platform) {
+            // Ini hanya menampilkan pesan, backend akan mengirim email
+            alert(`Mengirim ${platform} panjaitancandri94@gmail.com`);
+
+            // Mengirim data ke backend menggunakan fetch atau EmailJS (disarankan untuk beginner)
+            fetch('/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ platform: platform })
+            });
+        }
+    </script>
+</body>
+</html>
